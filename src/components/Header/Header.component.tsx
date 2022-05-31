@@ -10,6 +10,7 @@ import {
 import { useBooleanToggle } from "@mantine/hooks";
 import { BrandTwitter, BrandYoutube, BrandInstagram } from "tabler-icons-react";
 import useStyles from "./Header.style";
+import Link from "next/link";
 
 type Props = {
   links: { link: string; label: string }[];
@@ -21,19 +22,19 @@ export const Header = ({ links }: Props) => {
   const { classes, cx } = useStyles();
 
   const items = links.map((link) => (
-    <a
-      key={link.label}
-      href={link.link}
-      className={cx(classes.link, {
-        [classes.linkActive]: active === link.link,
-      })}
-      onClick={(event) => {
-        event.preventDefault();
-        setActive(link.link);
-      }}
-    >
-      {link.label}
-    </a>
+    <Link key={link.label} href={link.link} passHref>
+      <a
+        className={cx(classes.link, {
+          [classes.linkActive]: active === link.link,
+        })}
+        onClick={(event) => {
+          event.preventDefault();
+          setActive(link.link);
+        }}
+      >
+        {link.label}
+      </a>
+    </Link>
   ));
 
   return (

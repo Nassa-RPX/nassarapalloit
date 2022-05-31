@@ -10,4 +10,9 @@ export const useStyles = createStyles((theme) => ({
   body: {
     flex: 1,
   },
+  main: {
+    [theme.fn.largerThan("lg")]: {
+      padding: "0 20%",
+    },
+  },
 }));

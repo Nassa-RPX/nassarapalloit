@@ -4,6 +4,7 @@ import { Children } from "../../types";
 import { Header } from "../Header/Header.component";
 
 import { useStyles } from "./Layout.styles";
+import { links } from "../../data/pages.data";
 
 type Props = Children;
 
@@ -13,14 +14,7 @@ export const Layout = ({ children }: Props) => {
   return (
     <AppShell
       padding="md"
-      header={
-        <Header
-          links={[
-            { link: "/", label: "Home" },
-            { link: "/associazione", label: "Associazione" },
-          ]}
-        />
-      }
+      header={<Header links={links} />}
       styles={(theme) => ({
         main: {
           backgroundColor:
