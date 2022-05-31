@@ -1,7 +1,8 @@
 import { AppProps } from "next/app";
 
 import Head from "next/head";
-import { MantineProvider } from "@mantine/core";
+import { ColorSchemeProvider, MantineProvider } from "@mantine/core";
+import { Layout } from "../src/components/Layout/Layout.component";
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
@@ -23,7 +24,14 @@ export default function App(props: AppProps) {
           colorScheme: "light",
         }}
       >
-        <Component {...pageProps} />
+        <ColorSchemeProvider
+          colorScheme="light"
+          toggleColorScheme={() => console.log("Changed")}
+        >
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ColorSchemeProvider>
       </MantineProvider>
     </>
   );

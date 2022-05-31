@@ -1,4 +1,4 @@
-import { Button, Title } from "@mantine/core";
+import { Title } from "@mantine/core";
 import type { NextPage } from "next";
 import Head from "next/head";
 
@@ -11,9 +11,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <div>
         <Title order={1}>Nassa Rapallo</Title>
-      </main>
+      </div>
     </>
   );
 };
