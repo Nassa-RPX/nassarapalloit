@@ -11,6 +11,8 @@ import { useBooleanToggle } from "@mantine/hooks";
 import { BrandTwitter, BrandYoutube, BrandInstagram } from "tabler-icons-react";
 import useStyles from "./Header.style";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { Tabs } from "./Tabs.component";
 
 type Props = {
   links: { link: string; label: string }[];
@@ -20,6 +22,7 @@ export const Header = ({ links }: Props) => {
   const [opened, toggleOpened] = useBooleanToggle(false);
   const [active, setActive] = useState(links[0].link);
   const { classes, cx } = useStyles();
+  const { push } = useRouter();
 
   const items = links.map((link) => (
     <Link key={link.label} href={link.link} passHref>
@@ -30,6 +33,7 @@ export const Header = ({ links }: Props) => {
         onClick={(event) => {
           event.preventDefault();
           setActive(link.link);
+          push(link.link);
         }}
       >
         {link.label}
@@ -46,9 +50,7 @@ export const Header = ({ links }: Props) => {
           size="sm"
           className={classes.burger}
         />
-        <Group className={classes.links} spacing={5}>
-          {items}
-        </Group>
+        <Tabs links={links} />
 
         <Title order={3}>Nassa</Title>
 

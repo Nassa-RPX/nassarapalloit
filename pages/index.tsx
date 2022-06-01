@@ -1,19 +1,12 @@
-import { Title } from "@mantine/core";
 import type { NextPage } from "next";
-import Head from "next/head";
+import { Hero } from "../src/components/Hero/Hero.components";
+import { Head } from "../src/components/Head";
 
 const Home: NextPage = () => {
   return (
     <>
-      <Head>
-        <title>nassarapallo</title>
-        <meta name="description" content="Nassa Rapallo" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <div>
-        <Title order={1}>Nassa Rapallo</Title>
-      </div>
+      <Head title={"nassarapallo"} />
+      <Hero />
     </>
   );
 };
